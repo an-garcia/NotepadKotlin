@@ -13,25 +13,23 @@ import android.view.View
 import com.xengar.android.notepadkotlin.crud.CreateActivity
 import com.xengar.android.notepadkotlin.recycler.NotesAdapter
 import com.xengar.android.notepadkotlin.util.SpaceItemDecoration
+import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var recycler: RecyclerView? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener { startActivity(CreateActivity.get(this@MainActivity)) }
 
-        recycler = findViewById(R.id.recycler)
-        recycler!!.layoutManager = LinearLayoutManager(this)
-        recycler!!.addItemDecoration(SpaceItemDecoration(this, R.dimen.margin_small))
-        recycler!!.adapter = NotesAdapter(this)
+        recycler.layoutManager = LinearLayoutManager(this)
+        recycler.addItemDecoration(SpaceItemDecoration(this, R.dimen.margin_small))
+        recycler.adapter = NotesAdapter(this)
     }
 
     override fun onResume() {
@@ -41,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     public override fun onDestroy() {
         super.onDestroy()
-        recycler!!.adapter = null
+        recycler.adapter = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -62,6 +60,6 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun refresh() {
-        (recycler!!.adapter as NotesAdapter).refresh()
+        (recycler.adapter as NotesAdapter).refresh()
     }
 }
