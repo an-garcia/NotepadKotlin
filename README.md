@@ -1,6 +1,6 @@
 # NotepadKotlin
 
-![Scheme](/readmeImages/Screenshot_menu01x.png)
+![Scheme](/readmeImages/Screenshot_1516984811.png)
 
 NotepadKotlin is an android application that emulates a notepad.
 The pursose of the application is to learn Android Kotlin based on [tutorial](https://www.udacity.com/course/kotlin-for-android-developers--ud888)
