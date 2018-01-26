@@ -8,6 +8,7 @@ The pursose of the application is to learn Android Kotlin based on [tutorial](ht
 
 ## Requirements
 - Android Studio with kotlin support
+- [Anko library](https://github.com/Kotlin/anko)
 
 
 
