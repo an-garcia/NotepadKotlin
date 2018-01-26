@@ -1,13 +1,9 @@
 package com.xengar.android.notepadkotlin.data
 
 import android.content.Context
-
-import java.util.concurrent.Executor
-import java.util.concurrent.Executors
+import org.jetbrains.anko.doAsync
 
 object DataStore {
-
-    val EXEC: Executor = Executors.newSingleThreadExecutor()
 
     @JvmStatic
     lateinit var notes: NoteDatabase
@@ -18,6 +14,10 @@ object DataStore {
     }
 
     fun execute(runnable: Runnable) {
-        EXEC.execute(runnable)
+        execute { runnable.run() }
+    }
+
+    fun execute(fn: () -> Unit) {
+        doAsync { fn() }
     }
 }
